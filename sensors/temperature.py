@@ -22,11 +22,11 @@ class TemperatureLogic(SensorLogic):
     def update(sensor, data):
         pin = config["sensors"][sensor.id]['pin']
         raw_value = ArduinopiOperator.read(pin)
-
-        new_value = 0
-        if raw_value != 0:
-            b_key = 4250
-            resistance = (1023 - raw_value) * 10000.0 / raw_value
-            new_value = 1/(math.log(resistance/10000)/b_key+1/298.15)-273.15 + 100
-        updated_properties = {"value": new_value}
-        SensorLogic.update_properties(sensor, updated_properties)
+        if raw_value is not None:
+            new_value = 0
+            if raw_value != 0:
+                b_key = 4250
+                resistance = (1023 - raw_value) * 10000.0 / raw_value
+                new_value = 1/(math.log(resistance/10000)/b_key+1/298.15)-273.15 + 100
+            updated_properties = {"value": new_value}
+            SensorLogic.update_properties(sensor, updated_properties)

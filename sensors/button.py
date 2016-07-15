@@ -18,8 +18,9 @@ class ButtonLogic(SensorLogic):
     def update(sensor, data):
         pin = config["sensors"][sensor.id]['pin']
         new_value = ArduinopiOperator.read(pin)
-        if new_value == 0:
-            updated_properties = {"pressed": 0}
-        else:
-            updated_properties = {"pressed": 1}
-        SensorLogic.update_properties(sensor, updated_properties)
+        if new_value is not None:
+            if new_value == 0:
+                updated_properties = {"pressed": 0}
+            else:
+                updated_properties = {"pressed": 1}
+            SensorLogic.update_properties(sensor, updated_properties)

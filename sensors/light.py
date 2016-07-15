@@ -19,6 +19,7 @@ class LightLogic(SensorLogic):
     @staticmethod
     def update(sensor, data):
         pin = config["sensors"][sensor.id]['pin']
-        new_value = ArduinopiOperator.read(pin)*100
-        updated_properties = {"value": new_value}
-        SensorLogic.update_properties(sensor, updated_properties)
+        new_value = ArduinopiOperator.read(pin)
+        if new_value is not None:
+            updated_properties = {"value": new_value*100}
+            SensorLogic.update_properties(sensor, updated_properties)
