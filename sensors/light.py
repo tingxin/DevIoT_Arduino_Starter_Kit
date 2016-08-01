@@ -2,7 +2,7 @@ __author__ = 'tingxxu'
 
 from DevIoTGateway.sensor import Sensor
 from DevIoTGateway.sproperty import SProperty
-from DevIoTGatewayPi.config import config
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.sensorlogic import SensorLogic
 from logic.arduinopioperator import ArduinopiOperator
 
@@ -22,4 +22,4 @@ class LightLogic(SensorLogic):
         new_value = ArduinopiOperator.read(pin)
         if new_value is not None:
             updated_properties = {"value": new_value*100}
-            SensorLogic.update_properties(sensor, updated_properties)
+            sensor.update_properties(updated_properties)

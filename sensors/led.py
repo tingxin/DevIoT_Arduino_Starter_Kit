@@ -4,7 +4,7 @@ import threading
 import time
 
 from DevIoTGateway.sensor import Sensor, SAction, SSetting
-from DevIoTGatewayPi.config import config
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.sensorlogic import SensorLogic
 from logic.arduinopioperator import ArduinopiOperator
 

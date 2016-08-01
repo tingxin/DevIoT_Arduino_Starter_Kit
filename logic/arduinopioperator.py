@@ -1,7 +1,8 @@
 __author__ = 'tingxxu'
 
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.pioperator import PiOperator
-from DevIoTGatewayPi.config import config
+
 from pyfirmata import Arduino, util
 
 

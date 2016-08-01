@@ -1,8 +1,8 @@
 __author__ = 'tingxxu'
 
 from DevIoTGateway.sensor import Sensor, SProperty
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.sensorlogic import SensorLogic
-from DevIoTGatewayPi.config import config
 from logic.arduinopioperator import ArduinopiOperator
 
 button = Sensor("button", "button_a", "AButton")
@@ -23,4 +23,4 @@ class ButtonLogic(SensorLogic):
                 updated_properties = {"pressed": 0}
             else:
                 updated_properties = {"pressed": 1}
-            SensorLogic.update_properties(sensor, updated_properties)
+            sensor.update_properties(updated_properties)

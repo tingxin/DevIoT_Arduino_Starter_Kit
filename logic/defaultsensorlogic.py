@@ -1,6 +1,6 @@
 __author__ = 'tingxxu'
 
-from DevIoTGatewayPi.config import config
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.sensorlogic import SensorLogic
 from arduinopioperator import ArduinopiOperator
 

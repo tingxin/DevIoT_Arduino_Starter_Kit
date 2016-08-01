@@ -19,6 +19,8 @@ This code also can be as a sample code to show how to use the Gateway Service SD
 ## What in this code
 1.the app.py: the app entry
 
+2.the setup.py: the helper of install the dependency
+
 2.setting.cfg: the custom's setting file, you can put all you setting item in this file with json format
 
 3.sensors folder: contain all the sensor logic model, those model map to real sensor connected to the Arduino
@@ -26,21 +28,14 @@ This code also can be as a sample code to show how to use the Gateway Service SD
 4.logic folder: contain some custom logic, such as how to get the data from Arduino
 
 ##Prerequisite
-###Hardware###
 1.This sample depended on [Arduino](http://www.arduino.cc/), you can get this pi device from [here](http://www.amazon.co.uk/Hobby-Components-Arduino-Compatible-Revision/dp/B00CG6KQO6/ref=sr_1_10?ie=UTF8&qid=1458789033&sr=8-10&keywords=arduino+board)
 
 2.This sample use [Grove - Starter Kit for Arduino](http://www.seeedstudio.com/depot/Grove-Starter-Kit-for-Arduino-p-1855.html). This toolkit supply easy way to let the Arduino connect the sensors, and it also contain the sensors we used in this sample, you can by it by [here](http://www.seeedstudio.com/depot/Grove-Starter-Kit-for-Arduino-p-1855.html)
 
-###Software###
-3.This sample code need meet all Prerequisites the in [Prerequisite](https://cto-github.cisco.com/tingxxu/iot-gateway/blob/master/README.md)
-
-4.This sample use pyFirmata to build the communication between Arduino and computer
-
-
-
 ##How to use
 ###Build the hardware###
 1.Join the Grove Shield with Arduino, and use the cable connect the Arduino to the computer. if you are correct, it should be like this:
+
 ![Connect Arduino](images/connected_pc.jpg "Connect Arduino")
 
 2.Install the Arduino IDE, you can download it from[here](https://www.arduino.cc/en/Main/Software)
@@ -48,12 +43,13 @@ This code also can be as a sample code to show how to use the Gateway Service SD
 ![Connect Arduino](images/connected_pc.jpg "Connect Arduino")
 
 3.Run Arduino IDE and load the StandardFirmata program as follow image:
+
 ![Load Firmata](images/load_firmata.jpg "Load Firmata")
 
 4.Upload the StandardFirmata program to Arduino device by click the "Upload" button.(the second one at the toolbar of Arduino IDE)
 
 ###Use sample code directly###
-5.Download this sample and the [gateway sdk](https://cto-github.cisco.com/tingxxu/iot-gateway/tree/master/gateway). copy the gateway folder and paste it under the arduino-pi folder. 
+5.Download this toolkit.
 
 6.Check the serial port Arduino used. you can use the Arduino IDE to check this as follow:
 
@@ -61,7 +57,7 @@ This code also can be as a sample code to show how to use the Gateway Service SD
 
 in above image, the serial port is "/dev/cu.usbmodem1421"
 
-in window system, you can also open the "Device Manager", check the "Ports" segment
+in Windows system, you can also open the "Device Manager", check the "Ports" segment
 
 ![Check serial](images/check_port_window.jpg "Check serial")
 
@@ -79,7 +75,7 @@ you also can use pyserial to check the serial port by follow command:(install py
 
 8.Connect the sensors to GrovePi and configuration.
 
-In this sample,i connected button sensor to the AO port on GrovePi, Sound sensor to A1 Port, Light sensor to A2 port.Led sensor to D3 port,Buzzer sensor to D4 port
+In this sample,i connected button sensor to the A0 port on GrovePi, Sound sensor to A1 Port, Light sensor to A2 port.Led sensor to D3 port,Buzzer sensor to D4 port
 ![Connect sensors](images/connected_sensor.jpg "Connect sensors")
 
 Check the connection setting in setting.cfg, as the step 1, the setting.cfg file should like this:
@@ -139,25 +135,22 @@ you can add or remove the sensor segment in "sensors" segment in setting.cfg fil
 
 Please do not let multiple sensors use same pin.
 
-
+8.Install the dependency as blow command:
+    
+    sudo  python setup.py install
+    
 9.Open the terminal window and cd to this folder, type follow command to run it:
     
     python app.py 
 
 
 ##How to test 
-If in your setting.cfg file, you use MQTT as the communicator,you can use [mqtool to test you service](https://cto-github.cisco.com/tingxxu/iot-gateway/tree/master/tools)
+You can use [mqtool to test you service](https://cto-github.cisco.com/tingxxu/iot-gateway/tree/master/tools) to check the data from your Gateway
 
-if you use HTTP protocol, you can use postman to test your service:
+##Trouble shooting
+1.If the error message contain the "DevIoTGatewayPi", you can 
 
-* open the HTTP RESTfull API document by open the link shown in you terminal window:
-    
-    ![Open RESTful API](images/httpterminal.png "RESTful API Link")
-    
-* Use [PostMan](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) to test those API.
-
-
-###Program it just use gateway sdk###
+##Program it just use gateway sdk##
 if you want to know how to use the gateway sdk to program this sample, you can follow bellow steps:
 
 1.Download the gateway SDK and copy it to you workspace folder

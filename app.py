@@ -1,9 +1,10 @@
 __author__ = 'tingxxu'
 
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.pigateway import PiGateway
-from DevIoTGatewayPi.config import config
 from logic.arduinopioperator import ArduinopiOperator
 from logic.defaultsensorlogic import DefaultSensorLogic
+
 
 
 if __name__ == '__main__':

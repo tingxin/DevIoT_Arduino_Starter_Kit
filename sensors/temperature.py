@@ -4,7 +4,7 @@ import math
 
 from DevIoTGateway.sensor import Sensor
 from DevIoTGateway.sproperty import SProperty
-from DevIoTGatewayPi.config import config
+from DevIoTGateway.config import config
 from DevIoTGatewayPi.sensorlogic import SensorLogic
 from logic.arduinopioperator import ArduinopiOperator
 
@@ -29,4 +29,4 @@ class TemperatureLogic(SensorLogic):
                 resistance = (1023 - raw_value) * 10000.0 / raw_value
                 new_value = 1/(math.log(resistance/10000)/b_key+1/298.15)-273.15 + 100
             updated_properties = {"value": new_value}
-            SensorLogic.update_properties(sensor, updated_properties)
+            sensor.update_properties(updated_properties)
