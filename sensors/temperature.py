@@ -12,7 +12,7 @@ from logic.arduinopioperator import ArduinopiOperator
 temperature = Sensor("temperature", "temperature_2", "AThermometer")
 
 value_property = SProperty("value", 0, [0, 100], 0)
-
+value_property.unit = "Celsius"
 temperature.add_property(value_property)
 
 

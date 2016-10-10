@@ -10,7 +10,7 @@ from logic.arduinopioperator import ArduinopiOperator
 light = Sensor("light", "light_2", "ALight")
 
 value_property = SProperty("value", 0, [0, 100], 0)
-
+value_property.unit = "Nit"
 light.add_property(value_property)
 
 

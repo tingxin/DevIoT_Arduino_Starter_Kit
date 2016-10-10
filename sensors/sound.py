@@ -10,7 +10,7 @@ from logic.arduinopioperator import ArduinopiOperator
 sound = Sensor("sound", "sound_2", "ASound")
 
 value_property = SProperty("volume", 0, [0, 100], 0)
-
+value_property.unit = "Decibel"
 sound.add_property(value_property)
 
 
