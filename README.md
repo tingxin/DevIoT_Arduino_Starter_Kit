@@ -7,6 +7,8 @@ Arduino gateway service can be used to work with DevIot, supply the DevIot capab
 
 This code also can be as a sample code to show how to use the Gateway Service SDK, use it build a completed gateway service which can work with [DevIoT](https://developer.cisco.com/site/devnetlabs/deviot/)
 
+If you use Arduino Yun board, please as set up it from this [guide](https://github.com/arunmir/DevIOT_standalone_ArduinoYUN)
+
 ## Table of contents
 
 * [What in this code](#what-in-this-code)
