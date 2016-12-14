@@ -7,6 +7,10 @@ Arduino gateway service can be used to work with DevIot, supply the DevIot capab
 
 This code also can be as a sample code to show how to use the Gateway Service SDK, use it build a completed gateway service which can work with [DevIoT](https://developer.cisco.com/site/devnetlabs/deviot/)
 
+##Tip
+The follow guide based on Arduino UNO, so when you run this app, you need let the Arduino UNO connect your computer, if you don't want to connect the 
+arudino board connect to your computer directly, you can use Arduino Yun board.
+
 If you use Arduino Yun board, please as set up it from this [guide](https://github.com/arunmir/DevIOT_standalone_ArduinoYUN)
 
 ## Table of contents
@@ -150,7 +154,12 @@ Please do not let multiple sensors use same pin.
 You can use [mqtool to test you service](https://cto-github.cisco.com/tingxxu/iot-gateway/tree/master/tools) to check the data from your Gateway
 
 ##Trouble shooting
-1.If the error message contain the "DevIoTGatewayPi", you can 
+###The data from Arduino is error
+* Make sure the app name in setting.cfg is unique for one DevIot server
+* Make sure after you use Arduino IDE run the StandardFirmata program to the Arduino board, you don't install any other app to the Ardunio board, if you did it, you need re-install the StandardFirmata
+
+
+
 
 ##Program it just use gateway sdk##
 if you want to know how to use the gateway sdk to program this sample, you can follow bellow steps:
